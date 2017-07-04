@@ -46,7 +46,7 @@
         Call Menu form Left
         -(void) OpenMenuLeft;
 
-            ex. if you wnat call Left menu form left
+            ex. if you want call Left menu form left
                 -(void)TouchLeftTop{
                     NSLog(@"TouchLeftTop");
                     [self OpenMenuRight];

@@ -39,6 +39,12 @@
 
         Touch left menu
         -(void)TouchLeftTop
+
+        Call Menu form Right
+        -(void) OpenMenuRight;
+
+        Call Menu form Left
+        -(void) OpenMenuLeft;
 ```
 
 ## LEFT HAND SIDE
@@ -48,7 +54,6 @@
         ex text->   [self setLeftMenuWithText:@"Left" color:[UIColor whiteColor]];
         ex image->  UIImage *img = [UIImage imageNamed:@"Hamburger.png"]; 
                     [self setImgLeftMenu:img];
-    2.[self setSlideMenu:NO]; default NO  <NO is left, Yes is right>
 ```
 <p align="center">
 <img src="http://i.imgur.com/5c5vrs1.png"/>
@@ -62,7 +67,6 @@
     ex text->   [self setRightMenuWithText:@"Right" color:[UIColor whiteColor]];
     ex image->  UIImage *img = [UIImage imageNamed:@"Hamburger.png"]; 
                 [self setImgRightMenu:img];
-    2.[self setSlideMenu:YES]; default NO  
 ```
 <p align="center">
 <img src="http://i.imgur.com/Ovis3Zh.png"/>

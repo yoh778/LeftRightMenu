@@ -51,7 +51,6 @@
     // [self setImgRightMenu:mm];
     [self setLeftMenuColorBG:[UIColor darkGrayColor]];
     
-    [self setSlideMenu:NO];
 }
 
 
@@ -67,9 +66,11 @@
 
 -(void)TouchRightTop{
     NSLog(@"TouchRightTop");
+    [self OpenMenuLeft];
 }
 -(void)TouchLeftTop{
     NSLog(@"TouchLeftTop");
+    [self OpenMenuRight];
 }
 
 @end

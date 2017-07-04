@@ -28,12 +28,12 @@
     
     NSMutableArray *menu;
     
-    BOOL slide;
+    BOOL slideFormRL;
 }
 
 @property (nonatomic, weak) NSObject <MyMenuDelegate> *delegate;
 
--(void) setSlideMenu:(Boolean) rr;
+
 -(void) AddMenu:(UIView*) vv;
 -(void) AddMenuTextOnly:(NSString *) ss;
 -(void) RefreshMenu;
@@ -46,4 +46,7 @@
 -(void) setTitle:(NSString *) title;
 -(void) setTextTitleColor:(UIColor *) cb;
 -(void) setColorBar:(UIColor*) cb;
+-(void) OpenMenuRight;
+-(void) OpenMenuLeft;
+
 @end

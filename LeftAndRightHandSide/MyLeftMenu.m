@@ -76,19 +76,10 @@
     [leftmenu addSubview:tableMenu];
     
     menu = [[NSMutableArray alloc] init];
-    slide = NO;
     
 }
 
--(void) setSlideMenu:(Boolean) rr{
-    slide = rr;
-    if(slide){
-        leftmenu.frame = CGRectMake(screenWidth, AACStatusBarHeight(), sizeLx, screenHeight);
-    }else{
-        
-        leftmenu.frame = CGRectMake(-sizeLx, AACStatusBarHeight(), sizeLx, screenHeight);
-    }
-}
+
 
 -(void) setLeftMenuColorBG:(UIColor *) cc{
     [leftmenu setBackgroundColor:cc];
@@ -267,7 +258,7 @@ CGFloat AACStatusBarHeight()
     speedX += 2;
     
     if(Open){
-        if(slide){
+        if(slideFormRL){
             [leftmenu setFrame:CGRectMake(leftmenu.frame.origin.x - speedX,leftmenu.frame.origin.y,
                                           leftmenu.frame.size.width, leftmenu.frame.size.height)];
             
@@ -296,7 +287,7 @@ CGFloat AACStatusBarHeight()
     }else{
         
         
-        if(slide){
+        if(slideFormRL){
             [leftmenu setFrame:CGRectMake(leftmenu.frame.origin.x + speedX,leftmenu.frame.origin.y,
                                           leftmenu.frame.size.width,leftmenu.frame.size.height)];
             
@@ -347,36 +338,36 @@ CGFloat AACStatusBarHeight()
     }
 }
 
--(void) ButtonLeft {
-    if(slide == NO){
-        if(!AnimationNow){
-            if(Open){
-                [self startMenu:NO];
-            }else{
-                [self startMenu:YES];
-            }
-            
+-(void) OpenMenuRight{
+    leftmenu.frame = CGRectMake(-sizeLx, AACStatusBarHeight(), sizeLx, screenHeight);
+    slideFormRL = NO;
+    if(!AnimationNow){
+        if(Open){
+            [self startMenu:NO];
+        }else{
+            [self startMenu:YES];
         }
-    }else{
-        [_delegate TouchLeftTop];
+        
     }
-    
+}
+
+-(void) OpenMenuLeft{
+    leftmenu.frame = CGRectMake(screenWidth, AACStatusBarHeight(), sizeLx, screenHeight);
+    slideFormRL = YES;
+    if(!AnimationNow){
+        if(Open){
+            [self startMenu:NO];
+        }else{
+            [self startMenu:YES];
+        }
+        
+    }
+}
+-(void) ButtonLeft {
+    [_delegate TouchLeftTop];
 }
 -(void) ButtonRight {
-    
-    if(slide){
-        if(!AnimationNow){
-            if(Open){
-                [self startMenu:NO];
-            }else{
-                [self startMenu:YES];
-            }
-            
-        }
-    }else{
-        [_delegate TouchRightTop];
-    }
-    
+    [_delegate TouchRightTop];
 }
 
 - (void)didReceiveMemoryWarning {
